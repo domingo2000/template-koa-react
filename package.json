@@ -1,0 +1,8 @@
+{
+  "name": "template-koa",
+  "version": "1.0.0",
+  "description": "Template to build koa api",
+  "main": "index.js",
+  "author": "ElFlargo",
+  "license": "MIT"
+}
