@@ -6,6 +6,7 @@
   "author": "ElFlargo",
   "license": "MIT",
   "dependencies": {
+    "@types/node": "^17.0.23",
     "koa": "^2.13.4",
     "koa-body": "^4.2.0",
     "koa-json": "^2.0.2",
