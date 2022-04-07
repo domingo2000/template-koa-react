@@ -4,5 +4,12 @@
   "description": "Template to build koa api",
   "main": "index.js",
   "author": "ElFlargo",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-body": "^4.2.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^10.1.1"
+  }
 }
