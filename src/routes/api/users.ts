@@ -10,6 +10,13 @@ usersRouter.get("/", async (ctx, next) => {
   });
 });
 
+usersRouter.get("/:id", async (ctx, next) => {
+  const user = await User.findByPk(ctx.params.id, {
+    include: [Trick]
+  });
+  ctx.body = user;
+});
+
 usersRouter.post("/", async (ctx, next) => {
   const user = await User.create(ctx.request.body);
   
