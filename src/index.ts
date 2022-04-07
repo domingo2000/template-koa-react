@@ -12,6 +12,8 @@ const app = new Koa();
 
 app.use(json());
 app.use(logger());
+app.use(koaBody());
+
 
 app.use(router.routes()).use(router.allowedMethods());
 

@@ -1,6 +1,6 @@
 import Router from "koa-router";
 
-import tricksRouter from "./routes/tricks";
+import apiRouter from "./routes/api";
 
 const router = new Router();
 
@@ -9,6 +9,6 @@ router.get('/', async (ctx, next) => {
   await next();
 });
 
-router.use('/tricks', tricksRouter.routes(), tricksRouter.allowedMethods());
+router.use('/api', apiRouter.routes(), apiRouter.allowedMethods());
 
 export default router;
