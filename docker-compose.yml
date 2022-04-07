@@ -1,13 +1,14 @@
 version: "3.2"
+# Need .env with DB_PASSWORD, DB_NAME
 
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: app
     ports:
       - "3000:3000"
-    container_name: app
     restart: unless-stopped
     volumes:
       - ./:/usr/src/app
@@ -18,25 +19,25 @@ services:
     environment:
       SECRET: some-secret
       DB_USERNAME: postgres
-      DB_PASSWORD: postgres
       DB_DIALECT: postgres
-      DB_NAME: nodeapp
-      NODE_ENV: development
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      NODE_ENV: ${NODE_ENV:-development}
       DB_HOST: postgres
-    
   postgres:
     image: postgres
+    container_name: postgres
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: nodeapp
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     networks:
       - app-network
     volumes:
       - db:/var/lib/postgresql/data
-  webserver:
+  nginx:
     image: nginx:mainline-alpine
-    container_name: webserver
+    container_name: nginx
     restart: unless-stopped
     ports:
       - "80:80"

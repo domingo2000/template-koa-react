@@ -1,5 +1,6 @@
 import Router from "koa-router";
 import { IData } from "./interfaces";
+import Trick from "../../models/tricks";
 
 const tricksRouter = new Router();
 
@@ -30,8 +31,8 @@ const tricks : ITrickData = {
 }
 
 // Get tricks
-tricksRouter.get("/", async (ctx, next) => {
-  ctx.body = tricks;
+tricksRouter.get("/", async (ctx : any, next) => {
+  ctx.body = await Trick.findAll();
   await next();
 });
 

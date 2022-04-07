@@ -1,12 +1,10 @@
 import Koa from 'koa';
-import Router from 'koa-router';
-
 import logger from 'koa-logger';
 import json from 'koa-json';
-
 import koaBody from 'koa-body';
 
 import router from './router';
+import sequelize from './sequelize';
 
 const app = new Koa();
 
@@ -30,6 +28,21 @@ app.use( async (ctx, next) => {
 
 app.use(router.routes()).use(router.allowedMethods());
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+
+(async () => {
+
+  await sequelize.sync({force: false});
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+
+  app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+  });
+
+})();
+
+
