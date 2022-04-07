@@ -12,7 +12,20 @@ const app = new Koa();
 
 app.use(json());
 app.use(logger());
-app.use(koaBody());
+// koa body url encoded
+app.use(koaBody({ 
+  // includeUnparsed: true, // for raw request body access
+  multipart: true, // for multipart/form-data (includes images)
+}));
+
+app.use( async (ctx, next) => {
+  console.log("######## REQUEST ########");
+  console.log("BODY", ctx.request.body);
+  console.log("PARAMS", ctx.request.query);
+  console.log(ctx.request.files); // files access
+  console.log("######################");
+  await next();
+});
 
 
 app.use(router.routes()).use(router.allowedMethods());
