@@ -6,13 +6,9 @@ import json from 'koa-json';
 
 import koaBody from 'koa-body';
 
-const app = new Koa();
-const router = new Router();
+import router from './router';
 
-router.get('/', async (ctx, next) => {
-  ctx.body = 'Hello World';
-  await next();
-});
+const app = new Koa();
 
 app.use(json());
 app.use(logger());

@@ -5,16 +5,25 @@
   "main": "index.js",
   "author": "ElFlargo",
   "license": "MIT",
+  "scripts": {
+    "start": "node build/index.js",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc"
+  },
   "dependencies": {
-    "@types/koa": "^2.13.4",
-    "@types/koa-json": "^2.0.20",
-    "@types/koa-logger": "^3.1.2",
-    "@types/koa-router": "^7.4.4",
-    "@types/node": "^17.0.23",
     "koa": "^2.13.4",
     "koa-body": "^4.2.0",
     "koa-json": "^2.0.2",
     "koa-logger": "^3.2.1",
     "koa-router": "^10.1.1"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.4",
+    "@types/koa-json": "^2.0.20",
+    "@types/koa-logger": "^3.1.2",
+    "@types/koa-router": "^7.4.4",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
   }
 }
