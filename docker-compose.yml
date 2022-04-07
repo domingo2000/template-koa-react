@@ -1,0 +1,54 @@
+version: "3.2"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    container_name: app
+    restart: unless-stopped
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+    environment:
+      SECRET: some-secret
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_DIALECT: postgres
+      DB_NAME: nodeapp
+      NODE_ENV: development
+      DB_HOST: postgres
+    
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: nodeapp
+    networks:
+      - app-network
+    volumes:
+      - db:/var/lib/postgresql/data
+  webserver:
+    image: nginx:mainline-alpine
+    container_name: webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+volumes:
+  db:
+networks:
+  app-network:
+    driver: bridge 
