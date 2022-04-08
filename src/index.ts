@@ -30,8 +30,6 @@ app.use(router.routes()).use(router.allowedMethods());
 
 
 (async () => {
-
-  await sequelize.sync({force: true});
   try {
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');
