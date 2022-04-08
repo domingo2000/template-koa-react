@@ -1,0 +1,15 @@
+
+logs
+*.log
+coverage
+build
+
+
+# Dependency directories
+node_modules/
+
+# dotenv environment variable files
+.env
+
+# temp files
+temp/
