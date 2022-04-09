@@ -5,7 +5,7 @@ bash:
 	sh -c "docker exec -it app bash"
 
 up:
-	sh -c "docker compose --file docker-compose.yml up -d"
+	sh -c "docker compose --file docker-compose.yml up -d --scale app=2"
 
 down:
 	sh -c "docker compose --file docker-compose.yml down --volumes"
