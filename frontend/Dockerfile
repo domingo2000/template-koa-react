@@ -19,5 +19,5 @@ RUN yarn install
 # Bundle app source
 COPY . .
 
-EXPOSE 3000
-CMD [ "sh", "-c", "yarn install && yarn db:migrate && yarn db:seed && yarn build && yarn start" ]
+EXPOSE 3001
+CMD [ "sh", "-c", "yarn start" ]

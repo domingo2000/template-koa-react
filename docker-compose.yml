@@ -4,14 +4,14 @@ version: "3.2"
 services:
   app:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
     container_name: app
     ports:
       - "3000:3000"
     restart: unless-stopped
     volumes:
-      - ./backend/:/usr/src/app
+      - ./backend:/usr/src/app
     depends_on:
       - postgres
     networks:
@@ -24,6 +24,22 @@ services:
       DB_NAME: ${DB_NAME}
       NODE_ENV: ${NODE_ENV:-development}
       DB_HOST: postgres
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+    volumes:
+      - ./frontend:/usr/src/app
+    depends_on:
+      - app
+    networks:
+      - app-network
+    environment:
+      SECRET: some-secret
   postgres:
     image: postgres
     container_name: postgres
