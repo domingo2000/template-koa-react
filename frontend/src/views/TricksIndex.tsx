@@ -1,12 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import useFetchData from '../hooks/useFetchData'
+
 
 interface Trick {
   id: number
   name: string
   description: string
-  createdAt: string
-  updatedAt: string
 }
 
 function TricksIndex() {
@@ -22,10 +22,9 @@ function TricksIndex() {
         <div key={trick.id}>
           <h2>{trick.name}</h2> 
           <p>Description: {trick.description}</p>
-          <p>CreatedAt: {trick.createdAt}</p>
-          <p>UpdatedAt: {trick.updatedAt}</p>
         </div>
       ))}
+      <Link to="/tricks/new">New Trick</Link>
     </div>
   )
 }

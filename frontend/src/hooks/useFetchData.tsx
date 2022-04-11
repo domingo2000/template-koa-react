@@ -3,14 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import config from '../config/config';
 
-const useFetchData = (endpoint: string) => {
+const useFetchData = (endpoint: string, raw=false) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const url = `${config.API_URL}/${endpoint}`;
+      let url = `${config.API_URL}/${endpoint}`;
+      if (raw) {
+        url = endpoint;
+      }
       try {
         const { data: response } = await axios.get(url);
         setData(response);
