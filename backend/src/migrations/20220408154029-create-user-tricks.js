@@ -9,7 +9,8 @@ module.exports = {
         references: {
           model: 'users',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE',
       },
       trick_id: {
         type: Sequelize.INTEGER,
@@ -17,7 +18,8 @@ module.exports = {
         references: {
           model: 'tricks',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE',
       },
       created_at: Sequelize.DATE,
       updated_at: Sequelize.DATE
