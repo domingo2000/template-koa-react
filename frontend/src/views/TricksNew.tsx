@@ -15,10 +15,11 @@ function TricksNew() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     const url = `${config.API_URL}/api/tricks`;
-    axios.post(url, {
+    const trick: Trick = {
       name,
       description
-    }).then(response => {
+    };
+    axios.post(url, trick).then(response => {
       console.log(response);
     }).catch(error => {
       console.log(error);

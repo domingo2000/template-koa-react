@@ -1,5 +1,3 @@
-import React, { useEffect } from 'react'
-import axios from 'axios'
 import useFetchData from '../hooks/useFetchData'
 
 interface Coffee {

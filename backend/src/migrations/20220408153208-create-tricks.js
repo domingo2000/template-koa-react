@@ -2,7 +2,7 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Tricks', { 
+    await queryInterface.createTable('tricks', { 
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,12 +11,12 @@ module.exports = {
       }, 
       name: Sequelize.STRING,
       description: Sequelize.STRING,
-      createdAt: Sequelize.DATE,
-      updatedAt: Sequelize.DATE
+      created_at: Sequelize.DATE,
+      updated_at: Sequelize.DATE
     });
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Tricks');
+    await queryInterface.dropTable('tricks');
   }
 };

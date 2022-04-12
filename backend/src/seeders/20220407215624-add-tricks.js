@@ -2,22 +2,22 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Tricks', [{
+    await queryInterface.bulkInsert('tricks', [{
       name: 'Backflip',
       description: 'Flip your backside',
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      created_at: new Date(),
+      updated_at: new Date(),
     }], {});
 
-    await queryInterface.bulkInsert('Tricks', [{
+    await queryInterface.bulkInsert('tricks', [{
       name: 'Frontflip',
       description: 'Flip your frontside',
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      created_at: new Date(),
+      updated_at: new Date(),
     }], {});
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Tricks', null, {});
+    await queryInterface.bulkDelete('tricks', null, {});
   }
 };

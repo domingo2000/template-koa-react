@@ -1,6 +1,9 @@
-import { Table, Column, Model, BelongsToMany, ForeignKey } from 'sequelize-typescript';
+import { Table, Column, Model, BelongsToMany, ForeignKey, Scopes } from 'sequelize-typescript';
 
-@Table
+@Table({
+  tableName: 'user_tricks',
+  underscored: true,
+})
 class UserTrick extends Model {
   @ForeignKey(() => User)
   @Column
@@ -11,7 +14,10 @@ class UserTrick extends Model {
   TrickId!: number;
 }
 
-@Table
+@Table({
+  tableName: 'users',
+  underscored: true,
+})
 class User extends Model {
   @Column
   name!: string;
@@ -21,7 +27,10 @@ class User extends Model {
   
 }
 
-@Table
+@Table({
+  tableName: 'tricks',
+  underscored: true,
+})
 class Trick extends Model {
   @Column
   name!: string;
