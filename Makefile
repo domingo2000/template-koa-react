@@ -21,3 +21,6 @@ seed:
 
 yarn:
 	sh -c "docker exec -it app sh -c 'yarn ${cmd}'"
+
+logs:
+	sh -c "docker logs -f app"

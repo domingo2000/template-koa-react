@@ -10,7 +10,7 @@ const useFetchData = (endpoint: string, raw=false) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      let url = `${config.API_URL}/${endpoint}`;
+      let url = `${config.API_URL}${endpoint}`;
       if (raw) {
         url = endpoint;
       }
