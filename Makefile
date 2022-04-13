@@ -10,9 +10,6 @@ up:
 down:
 	sh -c "docker compose --file docker-compose.yml down --volumes"
 
-logs-app:
-	sh -c "docker logs -f app"
-
 migrate:
 	sh -c "docker exec -it app sh -c 'yarn db:migrate'"
 
@@ -25,8 +22,14 @@ db-reset:
 yarn:
 	sh -c "docker exec -it app sh -c 'yarn ${cmd}'"
 
-logs:
+logs-backend:
 	sh -c "docker logs -f app"
 
-add:
+logs-frontend:
+	sh -c "docker logs -f frontend"
+
+add-backend:
 	sh -c "docker exec -it app sh -c 'yarn add ${cmd}'"
+
+add-frontend:
+	sh -c "docker exec -it frontend sh -c 'yarn add ${cmd}'"
