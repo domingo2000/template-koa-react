@@ -1,7 +1,21 @@
 import { Table, Column, Model, BelongsTo, HasMany, BelongsToMany, ForeignKey, Scopes } from 'sequelize-typescript';
 
+// _Resource
+@Table({
+  tableName: '_resources',
+  underscored: true,
+})
+class _Resource extends Model {
+  @Column
+  name: string
+}
+
+
 // One to Many
-@Table
+@Table({
+  tableName: '_players',
+  underscored: true,
+})
 class _Player extends Model {
   @Column
   name: string
@@ -14,7 +28,10 @@ class _Player extends Model {
   _team: _Team
 }
 
-@Table
+@Table({
+  tableName: '_teams',
+  underscored: true,
+})
 class _Team extends Model {
   @Column
   name: string

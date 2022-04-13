@@ -14,7 +14,7 @@ _resourcesRouter.param("id", async (id, ctx, next) => {
 
 // GET /api/_resources
 _resourcesRouter.get("/", async (ctx, next) => {
-  ctx.body = await _Resource.findAll();
+  ctx.body = await _Resource.findAll({ where: ctx.request.query });
 });
 
 // GET /api/_resources/:id
@@ -52,7 +52,7 @@ _resourcesRouter.delete("/:id", async (ctx, next) => {
   const { _resource } = ctx.state;
   try {
     await _resource.destroy();
-    ctx.body = _resource;
+    ctx.status = 204;
   } catch (err) {
     ctx.status = 400;
     ctx.body = err;
