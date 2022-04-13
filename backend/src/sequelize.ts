@@ -9,11 +9,6 @@ import {
   Trick,
   UserTrick,
 } from './models/models';
-console.log("#########")
-console.log(User)
-console.log(Trick)
-console.log(UserTrick)
-console.log("#########")
 const sequelize = new Sequelize(config);
 
 sequelize.addModels([
