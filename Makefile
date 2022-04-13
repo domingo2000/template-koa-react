@@ -19,6 +19,9 @@ migrate:
 seed:
 	sh -c "docker exec -it app sh -c 'yarn db:seed'"
 
+db-reset:
+	sh -c "docker exec -it app sh -c 'yarn db:reset'"
+
 yarn:
 	sh -c "docker exec -it app sh -c 'yarn ${cmd}'"
 
