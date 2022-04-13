@@ -2,12 +2,14 @@ import Koa from 'koa';
 import logger from 'koa-logger';
 import json from 'koa-json';
 import koaBody from 'koa-body';
+import cors from '@koa/cors';
 
 import router from './router';
 import sequelize from './sequelize';
 
 const app = new Koa();
 
+app.use(cors());
 app.use(json());
 app.use(logger());
 // koa body url encoded

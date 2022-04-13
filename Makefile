@@ -27,3 +27,6 @@ yarn:
 
 logs:
 	sh -c "docker logs -f app"
+
+add:
+	sh -c "docker exec -it app sh -c 'yarn add ${cmd}'"

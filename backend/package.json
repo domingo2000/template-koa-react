@@ -18,6 +18,7 @@
     "db:seed:undo": "sequelize db:seed:undo"
   },
   "dependencies": {
+    "@koa/cors": "^3.3.0",
     "koa": "^2.13.4",
     "koa-body": "^4.2.0",
     "koa-json": "^2.0.2",
