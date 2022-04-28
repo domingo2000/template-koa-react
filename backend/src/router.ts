@@ -1,12 +1,12 @@
-import Router from "koa-router";
+import Router from 'koa-router';
 
-import apiRouter from "./routes/api";
+import apiRouter from './routes/api';
 
 const router = new Router();
 
 router.get('/', async (ctx, next) => {
-  ctx.body = 'Hello World!';
-  await next();
+    ctx.body = 'Hello World!';
+    await next();
 });
 
 // Unparsed body request access
@@ -20,7 +20,7 @@ router.get('/', async (ctx, next) => {
 // });
 
 router.post('/', async (ctx, next) => {
-  ctx.body = ctx.request.body;
+    ctx.body = ctx.request.body;
 });
 
 router.use('/api', apiRouter.routes(), apiRouter.allowedMethods());
