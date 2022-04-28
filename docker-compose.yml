@@ -41,7 +41,7 @@ services:
     environment:
       SECRET: some-secret
   postgres:
-    image: postgres
+    image: postgis/postgis
     container_name: postgres
     environment:
       POSTGRES_USER: postgres

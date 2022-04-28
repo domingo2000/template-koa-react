@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import CoffeeIndex from './views/CoffeeIndex';
-import Home from './views/Home';
-import TricksIndex from './views/TricksIndex';
-import TricksNew from './views/TricksNew';
+import CoffeeIndex from './views/CoffeIndexView';
+import Home from './views/HomeView';
+import TricksIndex from './views/TricksIndexView';
+import TricksNew from './views/TricksNewView';
 
 export default function Router() {
   return (

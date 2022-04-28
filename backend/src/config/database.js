@@ -20,7 +20,8 @@ const config = {
     "password": process.env.DB_PASSWORD,
     "database": process.env.DB_NAME,
     "database": process.env.DB_NAME,
-    "dialect": process.env.DB_DIALECT
+    "dialect": process.env.DB_DIALECT,
+    "seederStorage": "sequelize",
   }
 }
 
