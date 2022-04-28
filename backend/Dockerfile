@@ -20,4 +20,4 @@ RUN yarn install
 COPY . .
 
 EXPOSE 3000
-CMD [ "sh", "-c", "yarn build && yarn dev" ]
+CMD [ "sh", "-c", "yarn build && yarn db:migrate && yarn db:seed && yarn dev" ]

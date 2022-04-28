@@ -61,6 +61,9 @@ yarn-frontend:
 lint-frontend:
 	sh -c "docker exec -it frontend sh -c 'yarn lint'"
 
+lint-fix-frontend:
+	sh -c "docker exec -it frontend sh -c 'yarn lint-fix'"
+
 logs-frontend:
 	sh -c "docker logs -f frontend"
 
