@@ -30,6 +30,9 @@ make migrate
 make seed
 ```
 
+## Deploy:
+La idea es que hagamos un workflow que cuando pusheamos a main se pushee al servidor directamente y se deployee allá programágicamente :star:.
+
 ## Dependencias claves de desarrollo
 
 - Typescript: Variables tipadas, interfaces etc...

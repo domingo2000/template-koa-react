@@ -6,7 +6,7 @@ down:
 	sh -c "docker compose --file docker-compose.yml down --volumes"
 
 build:
-	sh -c "docker compose --file docker-compose.yml build"
+	sh -c "docker compose --file docker-compose.yml build ${service}"
 
 restart:
 	sh -c "docker compose --file docker-compose.yml restart ${service}"
