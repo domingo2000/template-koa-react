@@ -1,4 +1,4 @@
-# Proyecto Semestral - Entrega 2
+# Template Koa+React
 
 El siguiente proyecto contiene una aplicación web montada con las siguientes componentes dockerizadas
 1. Backend en node + KOA + TS
