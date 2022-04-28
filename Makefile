@@ -30,6 +30,12 @@ db-reset:
 yarn:
 	sh -c "docker exec -it app sh -c 'yarn ${cmd}'"
 
+lint:
+	sh -c "docker exec -it app sh -c 'yarn lint'"
+
+lint-fix:
+	sh -c "docker exec -it app sh -c 'yarn lint-fix'"
+
 add:
 	sh -c "docker exec -it app sh -c 'yarn add ${cmd}'"
 
@@ -39,21 +45,28 @@ remove:
 logs:
 	sh -c "docker logs -f app"
 
+bash:
+	sh -c "docker exec -it app bash"
+
 # Frontend
 add-frontend:
 	sh -c "docker exec -it frontend sh -c 'yarn add ${cmd}'"
 
-# Logs
+remove-frontend:
+	sh -c "docker exec -it frontend sh -c 'yarn remove ${cmd}'"
+
+yarn-frontend:
+	sh -c "docker exec -it frontend sh -c 'yarn ${cmd}'"
+
+lint-frontend:
+	sh -c "docker exec -it frontend sh -c 'yarn lint'"
+
 logs-frontend:
 	sh -c "docker logs -f frontend"
 
-add:
-	sh -c "docker exec -it frontend sh -c 'yarn add ${cmd}'"
+bash-frontend:
+	sh -c "docker exec -it frontend bash"
 
 # Database
 psql:
 	sh -c "docker exec -it postgres psql -U postgres app"
-
-# Consoles
-bash:
-	sh -c "docker exec -it app bash"
