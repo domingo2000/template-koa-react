@@ -4,41 +4,41 @@ import axios from 'axios';
 import config from '../config/config';
 
 const useFetchData = (endpoint: string, raw=false) => {
-    const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            let url = `${config.API_URL}${endpoint}`;
-            if (raw) {
-                url = endpoint;
-            }
-            try {
-                const { data: response } = await axios.get(url);
-                setData(response);
-            } catch (error: any) {
-                switch (error.response.status) {
-                case 401:
-                    navigate('/forbidden');
-                    break;
-                case 403:
-                    console.log('Forbidden');
-                    break;
-                default:
-                    console.log(`Error fetching the data: ${error.response.status} ${error.response.statusText} ${url}`);
-                }
-            }
-            setLoading(false);
-        };
-
-        fetchData();
-    }, []);
-
-    return {
-        data,
-        loading,
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      let url = `${config.API_URL}${endpoint}`;
+      if (raw) {
+        url = endpoint;
+      }
+      try {
+        const { data: response } = await axios.get(url);
+        setData(response);
+      } catch (error: any) {
+        switch (error.response.status) {
+        case 401:
+          navigate('/forbidden');
+          break;
+        case 403:
+          console.log('Forbidden');
+          break;
+        default:
+          console.log(`Error fetching the data: ${error.response.status} ${error.response.statusText} ${url}`);
+        }
+      }
+      setLoading(false);
     };
+
+    fetchData();
+  }, []);
+
+  return {
+    data,
+    loading,
+  };
 };
 
 export default useFetchData;

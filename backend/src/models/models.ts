@@ -1,45 +1,45 @@
 import { Table, Column, Model, BelongsToMany, ForeignKey, Scopes } from 'sequelize-typescript';
 
 @Table({
-    tableName: 'user_tricks',
-    underscored: true,
+  tableName: 'user_tricks',
+  underscored: true,
 })
 class UserTrick extends Model {
   @ForeignKey(() => User)
   @Column
-      UserId!: number;
+    UserId!: number;
 
   @ForeignKey(() => Trick)
   @Column
-      TrickId!: number;
+    TrickId!: number;
 }
 
 @Table({
-    tableName: 'users',
-    underscored: true,
+  tableName: 'users',
+  underscored: true,
 })
 class User extends Model {
   @Column
-      name!: string;
+    name!: string;
 
   @BelongsToMany(() => Trick, () => UserTrick)
-      tricks!: Array<Trick & {UserTrick: UserTrick}>;
+    tricks!: Array<Trick & {UserTrick: UserTrick}>;
   
 }
 
 @Table({
-    tableName: 'tricks',
-    underscored: true,
+  tableName: 'tricks',
+  underscored: true,
 })
 class Trick extends Model {
   @Column
-      name!: string;
+    name!: string;
 
   @Column
-      description!: string;
+    description!: string;
 
   @BelongsToMany(() => User, () => UserTrick)
-      users!: User[];
+    users!: User[];
 }
 
 
